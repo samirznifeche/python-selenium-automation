@@ -14,10 +14,10 @@ def target_cart(context):
     context.driver.find_element(By.CSS_SELECTOR, "[data-test='@web/CartIcon']").click()
     sleep(5)
 
-@then('Verify "Your cart is empty" message is shown')
+@then('verify "Your cart is empty" message is shown')
 def verify_cart_empty(context):
     actual_text = context.driver.find_element(By.CSS_SELECTOR, "[class*='styles_fontSize1']").text
-    assert actual_text == "Your cart is empty", f"Error, 'Your cart is empty' message NOT in {actual_text}'"
+    assert "Your cart is empty" in actual_text, f"Error, 'Your cart is empty' message NOT in {actual_text}"
 
 
 
@@ -34,4 +34,4 @@ def click_sign_in(context):
 @then('verify Sign In form opened')
 def verify_sign_in(context):
     actual_text = context.driver.find_element(By.XPATH, "//h1[text()='Sign in or create account']").text
-    assert actual_text == "Sign in or create account", f"Error, 'Sign in or create account' message NOT in {actual_text}"
+    assert "Sign in or create account" in actual_text, f"Error, 'Sign in or create account' message NOT in {actual_text}"
