@@ -3,13 +3,13 @@ from behave import given, when, then
 from time import sleep
 
 
-SEARCH_INPUT = (By.NAME, 'q')
-SEARCH_SUBMIT = (By.NAME, 'btnK')
+SEARCH_INPUT = (By.ID, 'search')
+SEARCH_SUBMIT = (By.CSS_SELECTOR, "[data-test='@web/Search/SearchButton']")
 
 
-@given('Open Google page')
-def open_google(context):
-    context.driver.get('https://www.google.com/')
+@given('Open Target page')
+def open_target(context):
+    context.driver.get('https://www.target.com/')
 
 
 @when('Input {search_word} into search field')
@@ -17,7 +17,7 @@ def input_search(context, search_word):
     search = context.driver.find_element(*SEARCH_INPUT)
     search.clear()
     search.send_keys(search_word)
-    sleep(4)
+    sleep(2)
 
 
 @when('Click on search icon')
