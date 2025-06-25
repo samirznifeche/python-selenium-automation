@@ -9,9 +9,10 @@ ORDER_SUMMARY_TXT = (By.CSS_SELECTOR, "div[class*='h-margin-b-default'] button[a
 
 @then('Verify "Your cart is empty" message is shown')
 def verify_cart_empty(context):
-    expected_text = 'Your cart is empty'
-    actual_text = context.driver.wait.until(EC.visibility_of_element_located(CART_CONTAINER_TXT)).text
-    assert expected_text in actual_text, f"Error, '{expected_text}' message NOT in {actual_text}"
+    #expected_text = 'Your cart is empty'
+    #actual_text = context.driver.wait.until(EC.visibility_of_element_located(CART_CONTAINER_TXT)).text
+    #assert expected_text in actual_text, f"Error, '{expected_text}' message NOT in {actual_text}"
+    context.app.cart_page.verify_empty_cart()
 
 
 @then('Verify cart has individual items')

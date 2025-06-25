@@ -21,3 +21,9 @@ def select_product(context):
 def click_add_to_cart(context):
     context.driver.wait.until(EC.presence_of_element_located(PRODUCT_TITLE))
     context.driver.wait.until(EC.element_to_be_clickable(ADD_TO_CART_BTN)).click()
+
+
+@then('Verify search worked for tea')
+def verify_search_worked(context):
+    context.app.search_results_page.verify_search_results()
+    context.app.search_results_page.verify_search_results()
