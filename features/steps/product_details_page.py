@@ -32,3 +32,7 @@ def click_and_verify_colors(context):
         print(actual_colors)
 
     assert expected_colors == actual_colors, f'Expected {expected_colors} did not match actual {actual_colors}'
+
+@when('Click Add to cart button')
+def click_add_to_cart(context):
+    context.app.product_details_page.click_add_to_cart_btn()

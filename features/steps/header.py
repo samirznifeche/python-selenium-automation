@@ -4,33 +4,23 @@ from behave import given, when, then
 from time import sleep
 
 
-CART_ICON_BTN = (By.CSS_SELECTOR, "[data-test='@web/CartIcon']")
-ACCOUNT_BTN = (By.ID, "account-sign-in")
-SEARCH_FIELD = (By.ID, "search")
-SEARCH_ICON_BTN = (By.CSS_SELECTOR, "button[data-test*='@web/Search/SearchButton']")
-SIDE_NAV_SIGN_IN_BTN = (By.CSS_SELECTOR, "button[data-test='accountNav-signIn']")
 LISTINGS = (By.CSS_SELECTOR, "[data-test='@web/site-top-of-funnel/ProductCardWrapper']")
 PRODUCT_TITLE = (By.CSS_SELECTOR, "[data-test='product-title']")
 PRODUCT_IMG = (By.CSS_SELECTOR, 'img')
 
 
-@then('Click "Account" button')
+@when('Click "Account" button')
 def click_account(context):
-    context.driver.wait.until(EC.element_to_be_clickable(ACCOUNT_BTN)).click()
-
+    context.app.header.click_account_btn()
 
 @when('Search for {product}')
 def search_product(context, product):
-    #context.driver.wait.until(EC.presence_of_element_located(SEARCH_FIELD)).send_keys(product)
-    #context.driver.wait.until(EC.element_to_be_clickable(SEARCH_ICON_BTN)).click()
-    context.app.header.search_product()
+    context.app.header.search_product(product)
     sleep(10)
-
 
 @then('Click "Sign In" button')
 def click_sign_in(context):
-    context.driver.wait.until(EC.element_to_be_clickable(SIDE_NAV_SIGN_IN_BTN)).click()
-
+    context.app.header.click_sign_in_btn()
 
 @then('Verify that every product has a name and an image')
 def verify_products_name_img(context):
@@ -49,7 +39,6 @@ def verify_products_name_img(context):
         assert title, 'Product title not shown'
         print(title)
         product.find_element(*PRODUCT_IMG)
-
 
 @when('Open Cart page')
 def open_cart(context):
