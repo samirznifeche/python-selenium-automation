@@ -13,4 +13,4 @@ class CartPage(Page):
         assert expected_text in actual_text, f"Error, expected '{expected_text}' not in '{actual_text}'"
 
     def verify_cart_has_individual_items(self):
-        self.verify_partial_text(self.cart_individual_items_txt, *self.ORDER_SUMMARY_MENU)
+        self.veri4fy_partial_text(self.cart_individual_items_txt, *self.ORDER_SUMMARY_MENU)

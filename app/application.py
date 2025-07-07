@@ -5,6 +5,7 @@ from pages.main_page import MainPage
 from pages.product_details_page import ProductDetailsPage
 from pages.search_results_page import SearchResultsPage
 from pages.sign_in_page import SignInPage
+from pages.terms_and_conditions_page import TermsAndConditionsPage
 
 
 class Application(Page):
@@ -16,3 +17,4 @@ class Application(Page):
         self.product_details_page = ProductDetailsPage(driver)
         self.sign_in_page = SignInPage(driver)
         self.search_results_page = SearchResultsPage(driver)
+        self.terms_and_conditions_page = TermsAndConditionsPage(driver)
