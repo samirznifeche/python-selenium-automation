@@ -8,9 +8,16 @@ Feature: Tests for Sign In functionality
     And Verify Sign In form opened
 
   Scenario: User can open and close Terms and Conditions from sign in page
-   Given Open sign in page
-   When Store original window
-   And Click on Target terms and conditions link
-   And Switch to the newly opened window
-   Then Verify Terms and Conditions page is opened
-   And User can close new window and switch back to original
+    Given Open sign in page
+    When Store original window
+    And Click on Target terms and conditions link
+    And Switch to the newly opened window
+    Then Verify Terms and Conditions page is opened
+    And User can close new window and switch back to original
+
+  Scenario: VerifY user can see error message after entering invalid credentials
+    Given Open Facebook page
+    When Enter 'correct_email@gmail.com' email
+    And Enter 'wrong_password' password
+    And Click Login button
+    Then Verify error message is shown
