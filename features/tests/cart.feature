@@ -1,6 +1,7 @@
 # Created by lenovo at 6/5/2025
 Feature: Tests for Cart functionality
 
+  @smoke
   Scenario: Verify Target Cart is empty
     Given Open Target main page
     When Open Cart page

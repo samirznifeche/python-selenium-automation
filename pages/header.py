@@ -15,6 +15,7 @@ class Header(Page):
 
     def open_cart(self):
         self.click(*self.CART_ICON_BTN)
+        # self.open_url('cart')
 
     def click_account_btn(self):
         self.wait_for_element_click(*self.ACCOUNT_BTN)
